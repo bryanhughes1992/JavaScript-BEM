@@ -1,0 +1,20 @@
+.user-form {
+    background-color: rgb(226, 226, 206);
+    width: 30%;
+    padding: 1em 0.5em;
+    border: dashed #000 2px;
+}
+
+.user-form__label {
+    font-family: 'Courier New', monospace;
+    background-color: gray;
+}
+
+.user-form__credentials {
+    /*display: block;*/
+
+}
+
+.user-form__button_login {
+    margin: 1em;
+}

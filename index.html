@@ -3,31 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="scripts/script.js"></script>
         <title>Lab 02</title>
     </head>
     <body>
-        <header>
-            <h1 class="page_title">
+        <header class="header">
+            <h1 class="header__page-title">
                 Login Page
             </h1>
         </header>
         <main>
-            <form>
+            <form class="user-form">
                 <fieldset>
                     <legend>User Authentication</legend>
-
-                    <label>Username:</label>
-                    <input>
-
-                    <label>Password:</label>
-                    <input type="password" >
-
-                    <input type="button" value="Log in">
+                    <label class="user-form__label" for="credentials">Username:</label>
+                    <input type="text" id="credentials" name="credentials" class="user-form__credentials">
+                    </br>
+                    <label class="user-form__label" for="password">Password:</label>
+                    <input name="password" id="password" type="password" class="user-form__credentials">
+                    </br>
+                    <input type="button" value="Log in" class="user-form__button_login" id="validateBtn">
                 </fieldset>
             </form>
+
             <div class="hidden-area" id="hiddenArea">
-                <p class="credentials">Username:</p>
-                <p class="credentials">Password:</p>
+                <p class="hidden-area__credentials" id="validUser">Username:</p>
+                <p id="validPassword" class="hidden-area__credentials">Password:</p>
             </div>
         </main>
     </body>
