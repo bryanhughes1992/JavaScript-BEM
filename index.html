@@ -14,16 +14,16 @@
             </h1>
         </header>
         <main>
-            <form class="user-form">
+            <form class="user-form" name="userForm" id="userForm">
                 <fieldset>
                     <legend>User Authentication</legend>
-                    <label class="user-form__label" for="credentials">Username:</label>
-                    <input type="text" id="credentials" name="credentials" class="user-form__credentials">
+                    <label class="user-form__label" for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="user-form__credentials">
                     </br>
                     <label class="user-form__label" for="password">Password:</label>
                     <input name="password" id="password" type="password" class="user-form__credentials">
                     </br>
-                    <input type="button" value="Log in" class="user-form__button_login" id="validateBtn">
+                    <input type="submit" value="Log in" class="user-form__button_login" id="validateBtn">
                 </fieldset>
             </form>
 

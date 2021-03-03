@@ -1,26 +1,31 @@
 //On load, fire this function
 window.addEventListener("load", function() {
+    //Hide the success message
     hideOutput();
+    //Store the entire form as a global variable
+    var userForm = document.forms.userForm;
     //Store the user input field as a global variable
-    var user = document.forms[0].credentials;
+    var user = userForm.username;
     //Store the password input field as a global variable
-    var password = document.forms[0].password;
-    //Store the validateBtn as a variable for local use
-    let validateBtn = document.getElementById('validateBtn');
-    //Listen for this button to be clicked, then call the validateContent() function
-    validateBtn.addEventListener('click', validateContent);
+    var password = userForm.password;
 
-    //A function of functions
-    function validateContent() {
-        if(!user.value || user.value === "") {
+
+    //Listen for this button to be clicked, then call the validateContent() function
+    userForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        if (!user.value || user.value === "") {
             highlightUser();
-        } else if(!password.value || password.value === "") {
+        } else if (!password.value || password.value === "") {
             highlightPassword();
         } else {
+            //Reveal the hidden area
             showContent();
+            //Display the validated credentials
             displayCredentials();
         }
-    }
+    });
+
+
     //Hides the output area below the form
     function hideOutput() {
         document.getElementById('hiddenArea').style.display = 'none';
@@ -41,12 +46,17 @@ window.addEventListener("load", function() {
     }
 
     function displayCredentials() {
-        //This will set these variables to the value of their input field's when the function is called
-        var validUser = document.forms[0].credentials.value;
-        var validPassword = document.forms[0].password.value;
+        //Capture the valid username
+        var validUser = userForm.username.value;
+        //Capture the valid password
+        var validPassword = userForm.password.value;
+        //Capture the paragraph for the username output
+        var userOutput = document.getElementById('validUser');
+        //Capture the paragraph for the password output
+        var passwordOutput = document.getElementById('validPassword');
 
         //Populate the valid credentials
-        document.getElementById('validUser').innerHTML += ` ${validUser}`;
-        document.getElementById('validPassword').innerHTML += ` ${validPassword}`;
+        userOutput.innerText += ` ${validUser}`;
+        passwordOutput.innerText += ` ${validPassword}`;
     }
 });
